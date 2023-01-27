@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvvmcross:MvxContentPage
+    x:Class="MVVMCrossDemo.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvmcross="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    Title="{Binding Title}"
+    NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Margin="20"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="{Binding Text}"
+                TextColor="Black" />
+
+            <ListView
+                Grid.Row="1"
+                Margin="20"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Users}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="0,10"
+                                Padding="5"
+                                BorderColor="Gray"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid
+                                    Padding="5"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                        Grid.Row="0"
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Name}"
+                                        TextColor="Black"
+                                        VerticalOptions="FillAndExpand" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        FontSize="12"
+                                        HorizontalOptions="FillAndExpand"
+                                        Text="{Binding Email}"
+                                        TextColor="Black"
+                                        VerticalOptions="FillAndExpand" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GrdContact_Tapped" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</mvvmcross:MvxContentPage>

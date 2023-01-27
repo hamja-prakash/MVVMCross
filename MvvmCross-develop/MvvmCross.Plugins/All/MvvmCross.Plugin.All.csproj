@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>MvvmCross.Plugin.All</AssemblyName>
+    <RootNamespace>MvvmCross.Plugin.All</RootNamespace>
+    <Description>MvvmCross is the .NET MVVM framework for cross-platform solutions, including Xamarin iOS, Xamarin Android, Xamarin Forms, Windows and Mac.
+
+This package contains all plugins for MvvmCross</Description>
+    <PackageId>MvvmCross.Plugin.All</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Platforms\**\*.cs" />
+    <None Include="Platforms\**\*.cs" />
+    <None Include="Resources\*.cs" />
+    <Compile Remove="Resources\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MvvmCross\MvvmCross.csproj" />
+    <ProjectReference Include="..\Color\MvvmCross.Plugin.Color.csproj" />
+    <ProjectReference Include="..\FieldBinding\MvvmCross.Plugin.FieldBinding.csproj" />
+    <ProjectReference Include="..\JsonLocalization\MvvmCross.Plugin.JsonLocalization.csproj" />
+    <ProjectReference Include="..\Json\MvvmCross.Plugin.Json.csproj" />
+    <ProjectReference Include="..\Messenger\MvvmCross.Plugin.Messenger.csproj" />
+    <ProjectReference Include="..\MethodBinding\MvvmCross.Plugin.MethodBinding.csproj" />
+    <ProjectReference Include="..\ResourceLoader\MvvmCross.Plugin.ResourceLoader.csproj" />
+    <ProjectReference Include="..\ResxLocalization\MvvmCross.Plugin.ResxLocalization.csproj" />
+    <ProjectReference Include="..\Visibility\MvvmCross.Plugin.Visibility.csproj" />
+  </ItemGroup>
+</Project>

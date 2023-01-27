@@ -1,0 +1,20 @@
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET 6.0'
+  inputs:
+    packageType: sdk
+    version: 6.0.x
+
+- pwsh: |
+    dotnet workload install android ios tvos macos maccatalyst
+  displayName: Install dotnet workloads
+
+- task: Cache@2
+  displayName: Cache Cake tools
+  inputs:
+    key: '"$(Agent.OS)" | build.cake'
+    path: 'tools'
+  continueOnError: true
+
+- script: dotnet tool restore
+  displayName: Restore dotnet tools
